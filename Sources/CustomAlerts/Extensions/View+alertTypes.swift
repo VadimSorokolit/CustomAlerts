@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension View {
+public extension View {
     
     func localAlert(_ alert: Binding<Alert.Notice?>) -> some View {
         modifier(Alert.AlertOverlayModifier(type: alert))

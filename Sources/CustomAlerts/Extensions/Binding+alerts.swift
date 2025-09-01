@@ -5,11 +5,10 @@
 //  Created by Vadim Sorokolit on 01.09.2025.
 //
     
-
 import Foundation
 import SwiftUI
 
-extension Binding where Value == Alert.Notice? {
+public extension Binding where Value == Alert.Notice? {
     
     func info(
         _ message: Text,

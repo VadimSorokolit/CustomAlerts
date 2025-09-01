@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-enum Alert {
+public enum Alert {
     
-    struct Notice: Identifiable {
+    public struct Notice: Identifiable {
         
         enum Category {
             case error

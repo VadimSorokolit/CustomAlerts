@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension EnvironmentValues {
+public extension EnvironmentValues {
     
     var appAlert: Binding<Alert.Notice?> {
         get { self[Alert.Key.self] }

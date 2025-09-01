@@ -7,7 +7,7 @@
     
 import SwiftUI
     
-extension Color {
+public extension Color {
 
     init(hex: Int, opacity: Double = 1.0) {
         self.init(
