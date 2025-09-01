@@ -44,7 +44,7 @@ public enum Alert {
             }
         }
         
-        let id = UUID()
+        public let id = UUID()
         let type: Category
         let message: Text
         let onConfirm: () -> Void
@@ -63,14 +63,14 @@ public enum Alert {
         }
     }
     
-    struct Key: EnvironmentKey {
-        static let defaultValue: Binding<Notice?> = .constant(nil)
+    public struct Key: EnvironmentKey {
+        public static let defaultValue: Binding<Notice?> = .constant(nil)
     }
     
-    struct AlertOverlayModifier: ViewModifier {
+    public struct AlertOverlayModifier: ViewModifier {
         @Binding var type: Notice?
         
-        func body(content: Content) -> some View {
+        public func body(content: Content) -> some View {
             ZStack {
                 content
                 if let alert = type {
