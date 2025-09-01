@@ -57,16 +57,18 @@ public extension UIViewController {
     
     public func showErrorAlert(
         message: String,
-        in viewController: UIViewController
+        in viewController: UIViewController,
+        okCompletion: ((UIAlertAction) -> (Void))? = nil
     ) {
-        self.showAlert(title: Constants.errorTitle, message: message, in: viewController, okCompletion: nil)
+        self.showAlert(title: Constants.errorTitle, message: message, in: viewController, okCompletion: okCompletion)
     }
     
     public func showWarningAlert(
         message: String,
-        in viewController: UIViewController
+        in viewController: UIViewController,
+        okCompletion: ((UIAlertAction) -> (Void))? = nil
     ) {
-        self.showAlert(title: Constants.warningTitle, message: message, in: viewController, okCompletion: nil)
+        self.showAlert(title: Constants.warningTitle, message: message, in: viewController, okCompletion: okCompletion)
     }
     
     @objc
@@ -76,10 +78,10 @@ public extension UIViewController {
                let message = userInfo[Constants.userInfoKey] as? String {
                 switch notification.name {
                     case .errorNotification:
-                        self.showErrorAlert(message: message)
+                        self.showErrorAlert(message: message, in: self, okCompletion: nil)
                         
                     case .warningNotification:
-                        self.showWarningAlert(message: message)
+                        self.showWarningAlert(message: message, in: self, okCompletion: nil)
                         
                     case .infoNotification:
                         self.showAlert(title: Constants.infoTitle, message: message, in: self, okCompletion: nil)
@@ -93,5 +95,3 @@ public extension UIViewController {
     
 }
 #endif
-
-
