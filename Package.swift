@@ -16,10 +16,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "CustomAlerts",
-            swiftSettings: [
-                .unsafeFlags(["-Xfrontend", "-strict-concurrency=minimal"])
-            ]
+            name: "CustomAlerts"
         ),
         .testTarget(
             name: "CustomAlertsTests",
