@@ -5,15 +5,18 @@ import PackageDescription
 
 let package = Package(
     name: "CustomAlerts",
+    platforms: [
+        .iOS(.v17),         
+        .macOS(.v11),
+        .tvOS(.v13),
+        .watchOS(.v6)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "CustomAlerts",
             targets: ["CustomAlerts"]),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "CustomAlerts"),
         .testTarget(
