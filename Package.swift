@@ -6,22 +6,25 @@ import PackageDescription
 let package = Package(
     name: "CustomAlerts",
     platforms: [
-        .iOS(.v17),         
-        .macOS(.v11),
-        .tvOS(.v13),
-        .watchOS(.v6)
+        .iOS(.v15),
+        .macOS(.v12),
+        .tvOS(.v15),
+        .watchOS(.v8)
     ],
     products: [
-        .library(
-            name: "CustomAlerts",
-            targets: ["CustomAlerts"]),
+        .library(name: "CustomAlerts", targets: ["CustomAlerts"])
     ],
     targets: [
         .target(
-            name: "CustomAlerts"),
+            name: "CustomAlerts",
+            swiftSettings: [
+                .unsafeFlags(["-Xfrontend", "-strict-concurrency=minimal"])
+            ]
+        ),
         .testTarget(
             name: "CustomAlertsTests",
             dependencies: ["CustomAlerts"]
-        ),
-    ]
+        )
+    ],
+    swiftLanguageModes: [.v5]  
 )
