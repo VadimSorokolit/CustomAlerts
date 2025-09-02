@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-public enum Alert {
+public enum CustomAlert {
     
     public struct Notice: Identifiable {
         
-        enum Category {
+        public enum Category {
             case error
             case info
             case warning
@@ -50,7 +50,7 @@ public enum Alert {
         let onConfirm: () -> Void
         let onCancel: (() -> Void)?
         
-        init(
+        public init(
             type: Category,
             message: Text,
             onConfirm: @escaping () -> Void,
@@ -129,7 +129,7 @@ public enum Alert {
                                         .font(
                                             CustomAlertsConfig.semiBoldFontName
                                                 .map { .custom($0, size: 16.0) }
-                                            ??  .system(size: 16, weight: .regular) // фолбэк
+                                            ??  .system(size: 16, weight: .regular)
                                         )
                                         .frame(maxWidth: .infinity, minHeight: 44.0)
                                         .contentShape(Rectangle())

@@ -15,10 +15,10 @@ public enum CustomAlertsConfig {
     
     public static func configure(semiBold: String? = nil,
                                  medium: String? = nil,
-                                 regular: String? = nil) {
+                                 regular: String? = nil
+    ) {
         self.semiBoldFontName = semiBold
         self.mediumFontName = medium
         self.regularFontName = regular
     }
 }
-

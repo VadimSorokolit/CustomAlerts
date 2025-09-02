@@ -10,13 +10,13 @@ import SwiftUI
 
 public extension View {
     
-    func localAlert(_ alert: Binding<Alert.Notice?>) -> some View {
-        modifier(Alert.AlertOverlayModifier(type: alert))
+    func localAlert(_ alert: Binding<CustomAlert.Notice?>) -> some View {
+        modifier(CustomAlert.AlertOverlayModifier(type: alert))
     }
     
-    func environmentAlert(_ alert: Binding<Alert.Notice?>) -> some View {
+    func environmentAlert(_ alert: Binding<CustomAlert.Notice?>) -> some View {
         self.environment(\.appAlert, alert)
-            .modifier(Alert.AlertOverlayModifier(type: alert))
+            .modifier(CustomAlert.AlertOverlayModifier(type: alert))
     }
     
 }

@@ -6,9 +6,9 @@
 //
     
 import SwiftUI
-    
-public extension Color {
 
+extension Color {
+    
     init(hex: Int, opacity: Double = 1.0) {
         self.init(
             red: Double((hex >> 16) & 0xff) / 255.0,
@@ -17,5 +17,5 @@ public extension Color {
             opacity: opacity
         )
     }
-
+    
 }
