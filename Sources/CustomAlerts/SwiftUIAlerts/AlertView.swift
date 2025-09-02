@@ -70,6 +70,8 @@ public enum CustomAlert {
     public struct AlertOverlayModifier: ViewModifier {
         @Binding var type: Notice?
         
+        public init(type: Binding<Notice?>) { self._type = type }
+        
         public func body(content: Content) -> some View {
             ZStack {
                 content
