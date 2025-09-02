@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public extension Binding where Value == CustomAlert.Notice? {
+public extension Binding where Value == AlertNotice? {
     
     func info(
         _ message: Text,

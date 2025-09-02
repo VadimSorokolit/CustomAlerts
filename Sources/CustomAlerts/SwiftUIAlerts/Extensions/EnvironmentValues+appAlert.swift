@@ -10,7 +10,7 @@ import SwiftUI
 
 public extension EnvironmentValues {
     
-    var appAlert: Binding<CustomAlert.Notice?> {
+    var appAlert: Binding<AlertNotice?> {
         get { self[CustomAlert.Key.self] }
         set { self[CustomAlert.Key.self] = newValue }
     }
