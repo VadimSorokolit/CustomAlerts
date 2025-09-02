@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+public typealias AlertNotice = CustomAlert.Notice
+
 public enum CustomAlert {
     
     public struct Notice: Identifiable {
