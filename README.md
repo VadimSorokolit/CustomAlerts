@@ -2,10 +2,28 @@
 
 **Custom alerts for `UIKit` and `SwiftUI`**
 
+### 👀 Alert Previews
+**UIKit** 
+
+<img width="258" height="127" alt="Screenshot 2025-09-03 at 18 09 55" src="https://github.com/user-attachments/assets/68964881-2101-465f-9280-9884cbc452cf" />
+<br />
+<br />
+
+**SwiftUI**
+
+<img width="283" height="158" alt="Screenshot 2025-09-03 at 18 59 16" src="https://github.com/user-attachments/assets/438d6371-c9e8-40d0-a11f-e2bc0b726115" />
+<img width="283" height="158" alt="Screenshot 2025-09-03 at 18 52 54" src="https://github.com/user-attachments/assets/6303384b-73ed-41f6-81e7-b128abeb423a" />
+ <br />
+<img width="283" height="158" alt="Screenshot 2025-09-03 at 18 55 04" src="https://github.com/user-attachments/assets/cef3eeb4-9d12-4b95-8782-ea9cf4bb23e0" />
+<img width="283" height="158" alt="Screenshot 2025-09-03 at 18 54 29" src="https://github.com/user-attachments/assets/5aba5c25-5b1e-4958-969a-5a2c3281fb7a" />
+
 ---
-### ✅ Requirements 
+
+### ✅ Requirements
+
 - iOS 16.0+ / macOS 12.0+
 ---
+
 ### 📦 Installation
 - Add package to project by **SPM**
 - Import library
