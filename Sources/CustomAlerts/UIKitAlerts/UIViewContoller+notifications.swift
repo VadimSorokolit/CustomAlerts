@@ -46,7 +46,7 @@ protocol AlertPresentingProtocol: AnyObject {
 
 // MARK: - AlertPresentingProtocol
 
-public extension UIViewController: AlertPresentingProtocol {
+extension UIViewController: AlertPresentingProtocol {
     
     private struct Constants {
         static let warningTitle = "Warning"
