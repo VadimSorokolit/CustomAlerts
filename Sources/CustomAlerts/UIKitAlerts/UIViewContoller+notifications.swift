@@ -8,6 +8,7 @@
 #if canImport(UIKit)
 import UIKit
 
+@MainActor
 protocol AlertPresentingProtocol: AnyObject {
     /**
      Registers the view controller instance
