@@ -7,7 +7,7 @@
 - iOS 16.0+ / macOS 12.0+
 ---
 ### 📦 Installation
-- Add package to project by SPM
+- Add package to project by **SPM**
 - Import library
 ```swift
 import CustomAlerts
@@ -28,7 +28,7 @@ Properties:
 - `Notification.Name.warningNotification` <br />
 
 Base class:
-- `BaseViewController` <br />
+- `CABaseViewController` <br />
 
 **SwiftUI**
 
@@ -48,7 +48,7 @@ Available methods:
 import UIKit
 import CustomAlerts
 
-class MyViewController: BaseViewController {
+class MyViewController: CABaseViewController {
     
     // MARK: - Lifecycle
     
@@ -60,8 +60,8 @@ class MyViewController: BaseViewController {
         button.addTarget(self, action: #selector(self.showErrorMessage), for: .touchUpInside)
         button.frame = CGRect(x: 0.0, y: 0.0, width: 150.0, height: 50.0)
         button.center = self.view.center
-
-		self.view.addSubview(button)
+        
+        self.view.addSubview(button)
     }
     
     // MARK: - Events
@@ -69,23 +69,21 @@ class MyViewController: BaseViewController {
     @objc private func showErrorMessage() {
         // Simple usage
         self.showErrorAlert(message: "Something went wrong", in: self)
-        /*
-         self.showErrorAlert(message: "Error", in: self) { action in
-         // Make something
-         }
-         */
         
-        // Or trigger globally via notification
-        /*
-         self.notify(name: .errorNotification, errorMessage: "Network error")
-         */
+        // Confirmation handler
+        self.showErrorAlert(message: "Error", in: self) { action in
+            // Make something
+        }
+        
+        // Trigger globally via notification
+        self.notify(name: .errorNotification, errorMessage: "Network error")
     }
-  
+    
 }
 
 ```
 #### <img src="https://developer.apple.com/assets/elements/icons/swiftui/swiftui-96x96_2x.png" alt="SwiftUI logo" width="12" /> **SwiftUI Examples:**
-- Alert use `Text`  to support styling 
+ **Alerts use `Text` to allow flexible styling, such as applying custom fonts, colors, or formatting**
 - Supports `custom fonts configuration` 
 ```swift
 @main
@@ -115,8 +113,10 @@ struct ContentView: View {
     
     var body: some View {
         Button("Show error") {
+			// Error
             $alert.error(Text("Something went wrong"))
-           /*
+
+			// Info
             $alert.info(
                 Text("Info..."),
                 onConfirm: {
@@ -125,19 +125,22 @@ struct ContentView: View {
                     <#code#>
                 }
             )
+
+			// Complete
             $alert.complete(
                 Text("Complete..."),
                 onConfirm: {
                     
                 }
             )
+
+			// Warning
             $alert.warning(
                 Text("Warning..."),
                 onCancel: {
                     <#code#>
                 }
             )
-            */
         }
         .localAlert($alert)
     }
