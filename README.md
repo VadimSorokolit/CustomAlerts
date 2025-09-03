@@ -47,7 +47,7 @@ Properties:
 - `Notification.Name.warningNotification` <br />
 
 Base class:
-- `CABaseViewController` <br />
+- `CABaseViewController` - **to subscribe notification center** <br />
 
 **SwiftUI**
 
