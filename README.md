@@ -69,11 +69,18 @@ class MyViewController: BaseViewController {
     @objc private func showErrorMessage() {
         // Simple usage
         self.showErrorAlert(message: "Something went wrong", in: self)
+        /*
+         self.showErrorAlert(message: "Error", in: self) { action in
+         // Make something
+         }
+         */
         
-        // Or trigger globally via Notification
-        // self.notify(name: .errorNotification, errorMessage: "Network error")
+        // Or trigger globally via notification
+        /*
+         self.notify(name: .errorNotification, errorMessage: "Network error")
+         */
     }
-    
+  
 }
 
 ```
