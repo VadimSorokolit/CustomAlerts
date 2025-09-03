@@ -1,6 +1,6 @@
 # CustomAlerts
 
-**Custom alerts for `UIKit` and `SwiftUI`**
+### Custom alerts for `UIKit` and `SwiftUI`
 
 ### 👀 Alert Previews
 **UIKit** 
