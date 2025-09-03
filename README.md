@@ -85,7 +85,94 @@ class MyViewController: BaseViewController {
 
 ```
 #### <img src="https://developer.apple.com/assets/elements/icons/swiftui/swiftui-96x96_2x.png" alt="SwiftUI logo" width="12" /> **SwiftUI Examples:**
----
+- Alert use `Text`  to support styling 
+- Supports `custom fonts configuration` 
+```swift
+@main
+struct MyApp: App {
+    init() {
+        CustomAlertsConfig.configure(
+            semiBold: "YourSemiBoldFontName",
+            medium: "YourMediumFontName",
+            regular: "YourRegularFontName"
+        )
+    }
 
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
+```
+**Local alert**
+```swift
+import SwiftUI
+import CustomAlerts
+
+struct ContentView: View {
+    @State private var alert: AlertNotice?
+    
+    var body: some View {
+        Button("Show error") {
+            $alert.error(Text("Something went wrong"))
+           /*
+            $alert.info(
+                Text("Info..."),
+                onConfirm: {
+                    <#code#>
+                }, onCancel: {
+                    <#code#>
+                }
+            )
+            $alert.complete(
+                Text("Complete..."),
+                onConfirm: {
+                    
+                }
+            )
+            $alert.warning(
+                Text("Warning..."),
+                onCancel: {
+                    <#code#>
+                }
+            )
+            */
+        }
+        .localAlert($alert)
+    }
+}
+```
+**Environment alert**
+
+```swift
+import SwiftUI
+import CustomAlerts
+
+@main
+struct DemoApp: App {
+    @State private var appAlert: AlertNotice?
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .environmentAlert($appAlert) 
+        }
+    }
+}
+
+import SwiftUI
+import CustomAlerts
+
+struct ContentView: View {
+    @Environment(\.appAlert) private var appAlert
+    
+    var body: some View {
+        Button("Show error") {
+            appAlert.error(Text("Something went wrong"))
+        }
+    }
+}
+```
 
 	
