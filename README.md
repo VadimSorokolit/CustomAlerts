@@ -4,7 +4,7 @@
 
 ---
 ### ✅ Requirements 
-- iOS 15.0+ / macOS 12.0+
+- iOS 16.0+ / macOS 12.0+
 ---
 ### 📦 Installation
 - Add package to project by SPM
