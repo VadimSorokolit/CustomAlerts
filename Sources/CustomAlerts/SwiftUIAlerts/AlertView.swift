@@ -91,7 +91,7 @@ public enum CustomAlert {
                             .font(
                                 CustomAlertsConfig.regularFontName
                                     .map { .custom($0, size: 16.0) }
-                                ??  .system(size: 16, weight: .regular)
+                                ??  .system(size: 16.0, weight: .regular)
                             )
                             .multilineTextAlignment(.center)
                             .lineSpacing(6.0)
@@ -114,7 +114,7 @@ public enum CustomAlert {
                                         .font(
                                             CustomAlertsConfig.mediumFontName
                                                 .map { .custom($0, size: 16.0) }
-                                            ??  .system(size: 16, weight: .regular)
+                                            ??  .system(size: 16.0, weight: .regular)
                                         )
                                         .frame(maxWidth: .infinity, minHeight: 44.0)
                                         .contentShape(Rectangle())
@@ -133,7 +133,7 @@ public enum CustomAlert {
                                         .font(
                                             CustomAlertsConfig.semiBoldFontName
                                                 .map { .custom($0, size: 16.0) }
-                                            ??  .system(size: 16, weight: .regular)
+                                            ??  .system(size: 16.0, weight: .regular)
                                         )
                                         .frame(maxWidth: .infinity, minHeight: 44.0)
                                         .contentShape(Rectangle())

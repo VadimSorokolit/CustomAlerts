@@ -8,7 +8,44 @@
 #if canImport(UIKit)
 import UIKit
 
-public extension UIViewController {
+protocol AlertPresentingProtocol: AnyObject {
+    /**
+     Registers the view controller instance
+     to listen for alert-related notifications
+     (`errorNotification`, `warningNotification`, `infoNotification`).
+     */
+    func registerForNotifications()
+    func notify(name: Notification.Name, errorMessage: String?)
+    /**
+     Presents an error alert with the given message
+     
+     - Parameters:
+     - message: The error message to display
+     - okCompletion: An optional closure executed when taps the OK button
+     */
+    func showErrorAlert(message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)
+    /**
+     Presents a warning alert with the given message
+     
+     - Parameters:
+     - message: The warning message to display
+     - okCompletion: An optional closure executed when taps the OK button
+     */
+    func showWarningAlert(message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)
+    /**
+     Presents alert with the provided parameters
+     
+     - Parameters:
+     - title: The title string displayed at the top of the alert
+     - message: The body text describing the alert
+     - okCompletion: An optional closure executed when taps the OK button
+     */
+    func showAlert(title: String, message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)
+}
+
+// MARK: - AlertPresentingProtocol
+
+public extension UIViewController: AlertPresentingProtocol {
     
     private struct Constants {
         static let warningTitle = "Warning"

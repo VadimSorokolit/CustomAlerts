@@ -6,10 +6,8 @@ import PackageDescription
 let package = Package(
     name: "CustomAlerts",
     platforms: [
-        .iOS(.v15),
+        .iOS(.v16),
         .macOS(.v12),
-        .tvOS(.v15),
-        .watchOS(.v8)
     ],
     products: [
         .library(name: "CustomAlerts", targets: ["CustomAlerts"])
@@ -23,5 +21,4 @@ let package = Package(
             dependencies: ["CustomAlerts"]
         )
     ],
-    swiftLanguageModes: [.v5]  
 )
