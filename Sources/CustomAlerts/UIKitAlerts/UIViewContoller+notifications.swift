@@ -34,14 +34,22 @@ protocol AlertPresentingProtocol: AnyObject {
      */
     func showWarningAlert(message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)
     /**
-     Presents alert with the provided parameters
+     Presents an alert with OK and optionally Cancel buttons
      
      - Parameters:
-     - title: The title string displayed at the top of the alert
-     - message: The body text describing the alert
-     - okCompletion: An optional closure executed when taps the OK button
+     - title: The alert title
+     - message: The alert message
+     - viewController: The `UIViewController` in which the alert will be presented
+     - okCompletion: Closure executed when the OK button is tapped
+     - cancelCompletion: (Optional) Closure executed when the Cancel button is tapped
      */
-    func showAlert(title: String, message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)
+    func showAlert(
+        title: String,
+        message: String,
+        in viewController: UIViewController,
+        okCompletion: ((UIAlertAction) -> Void)?,
+        cancelCompletion: ((UIAlertAction) -> Void)?
+    )
 }
 
 // MARK: - AlertPresentingProtocol
@@ -53,6 +61,7 @@ extension UIViewController: AlertPresentingProtocol {
         static let infoTitle = "Info"
         static let errorTitle = "Error"
         static let okActionTitle = "OK"
+        static let cancelActionTitle = "Cancel"
         static let userInfoKey = "error"
     }
     
@@ -85,11 +94,27 @@ extension UIViewController: AlertPresentingProtocol {
         title: String,
         message: String,
         in viewController: UIViewController,
-        okCompletion: ((UIAlertAction) -> (Void))?
+        okCompletion: ((UIAlertAction) -> Void)?,
+        cancelCompletion: ((UIAlertAction) -> Void)? = nil
     ) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: Constants.okActionTitle, style: UIAlertAction.Style.default, handler: okCompletion)
+        
+        let okAction = UIAlertAction(
+            title: Constants.okActionTitle,
+            style: .default,
+            handler: okCompletion
+        )
         alert.addAction(okAction)
+        
+        if let cancelAction = cancelCompletion {
+            let cancelAction = UIAlertAction(
+                title: Constants.cancelActionTitle,
+                style: .cancel,
+                handler: cancelAction
+            )
+            alert.addAction(cancelAction)
+        }
+        
         viewController.present(alert, animated: true, completion: nil)
     }
     
