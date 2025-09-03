@@ -5,7 +5,7 @@
 ### 👀 Alert Previews
 **UIKit** 
 
-<img width="258" height="127" alt="Screenshot 2025-09-03 at 18 09 55" src="https://github.com/user-attachments/assets/68964881-2101-465f-9280-9884cbc452cf" />
+<img width="283" height="158" alt="Screenshot 2025-09-03 at 18 09 55" src="https://github.com/user-attachments/assets/68964881-2101-465f-9280-9884cbc452cf" />
 <br />
 <br />
 
