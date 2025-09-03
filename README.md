@@ -39,7 +39,7 @@ Available methods:
 - `func notify(name: Notification.Name, errorMessage: String?)` <br />
 - `func showErrorAlert(message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)` <br />
 - `func showWarningAlert(message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)` <br />
-- `func showAlert(title: String, message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)` <br /> 
+- `func showAlert(title: String, message: String, in viewController: UIViewController, okCompletion: ((UIAlertAction) -> Void)?, cancelCompletion: ((UIAlertAction) -> Void)?)` <br /> 
 
 Properties:
 - `Notification.Name.errorNotification` <br />
