@@ -1,6 +1,6 @@
 # CustomAlerts
 
-**CustomAlerts for `UIKit` and `SwiftUI`**
+**Custom alerts for `UIKit` and `SwiftUI`**
 
 ---
 ### ✅ Requirements 
