@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 public extension View {
     /**
      Presents a local alert that is bound only to the current view.

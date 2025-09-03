@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 public extension EnvironmentValues {
     
     /**
