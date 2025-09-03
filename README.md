@@ -17,10 +17,10 @@ import CustomAlerts
 **UIKit**
 
 Available methods:
-- `notify(name: Notification.Name, errorMessage: String?)` <br />
-- `showErrorAlert(message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)` <br />
-- `showWarningAlert(message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)` <br />
-- `showAlert(title: String, message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)` <br /> 
+- `func notify(name: Notification.Name, errorMessage: String?)` <br />
+- `func showErrorAlert(message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)` <br />
+- `func showWarningAlert(message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)` <br />
+- `func showAlert(title: String, message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)` <br /> 
 
 Properties:
 - `Notification.Name.errorNotification` <br />
@@ -39,7 +39,7 @@ Available methods:
 - `func error(_ message: Text, onConfirm: @escaping () -> Void = {},onCancel: (() -> Void)? = nil)`
 - `func warning(_ message: Text, onConfirm: @escaping () -> Void = {}, onCancel: (() -> Void)? = nil)`
 - `func complete(_ message: Text, onConfirm: @escaping () -> Void = {}, onCancel: (() -> Void)? = nil)`
-- `static func configure(semiBold: String? = nil, medium: String? = nil, regular: String? = nil)`
+- `func configure(semiBold: String? = nil, medium: String? = nil, regular: String? = nil)`
 ---
 ### 🛠️ Usage
 
@@ -57,7 +57,7 @@ class MyViewController: CABaseViewController {
         
         let button = UIButton(type: .system)
         button.setTitle("Show alert", for: .normal)
-        button.addTarget(self, action: #selector(self.showErrorMessage), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.showAlert), for: .touchUpInside)
         button.frame = CGRect(x: 0.0, y: 0.0, width: 150.0, height: 50.0)
         button.center = self.view.center
         
@@ -66,7 +66,7 @@ class MyViewController: CABaseViewController {
     
     // MARK: - Events
     
-    @objc private func showErrorMessage() {
+    @objc private func showAlert() {
         // Simple usage
         self.showErrorAlert(message: "Something went wrong", in: self)
         
@@ -83,7 +83,7 @@ class MyViewController: CABaseViewController {
 
 ```
 #### <img src="https://developer.apple.com/assets/elements/icons/swiftui/swiftui-96x96_2x.png" alt="SwiftUI logo" width="12" /> **SwiftUI Examples:**
- **Alerts use `Text` to allow flexible styling, such as applying custom fonts, colors, or formatting**
+ **Alerts use `Text` to allow flexible styling, such as applying custom fonts, colors or formatting**
 - Supports `custom fonts configuration` 
 ```swift
 @main
@@ -112,7 +112,7 @@ struct ContentView: View {
     @State private var alert: AlertNotice?
     
     var body: some View {
-        Button("Show error") {
+        Button("Show alert") {
 			// Error
             $alert.error(Text("Something went wrong"))
 
@@ -130,7 +130,7 @@ struct ContentView: View {
             $alert.complete(
                 Text("Complete..."),
                 onConfirm: {
-                    
+					<#code#>
                 }
             )
 
