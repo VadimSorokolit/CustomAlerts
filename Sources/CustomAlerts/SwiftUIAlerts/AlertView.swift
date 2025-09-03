@@ -66,16 +66,16 @@ public enum CustomAlert {
     }
     
     @MainActor
-    public struct Key: @preconcurrency EnvironmentKey {
+    struct Key: @preconcurrency EnvironmentKey {
         public static let defaultValue: Binding<Notice?> = .constant(nil)
     }
     
-    public struct AlertOverlayModifier: ViewModifier {
+    struct AlertOverlayModifier: ViewModifier {
         @Binding var type: Notice?
         
-        public init(type: Binding<Notice?>) { self._type = type }
+        init(type: Binding<Notice?>) { self._type = type }
         
-        public func body(content: Content) -> some View {
+        func body(content: Content) -> some View {
             ZStack {
                 content
                 if let alert = type {
