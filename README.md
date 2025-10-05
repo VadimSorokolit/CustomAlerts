@@ -197,4 +197,48 @@ struct ContentView: View {
 }
 ```
 
+**Alert in one place - root scene**
+
+```swift
+import SwiftUI
+import CustomAlerts
+
+@main
+struct DemoApp: App {
+    
+    // MARK: - Properties. Private
+    
+    @State private var viewModel = ViewModel()
+    
+    // MARK: Root scene
+    
+    var body: some Scene {
+        WindowGroup {
+			ContentView()
+                .modifier(LoadViewModifier(viewModel: self.viewModel))
+        }
+    }
+    
+    // MARK: - Modifiers
+    
+    struct LoadViewModifier: ViewModifier {
+        let viewModel: ViewModel
+        @State private var appAlert: AlertNotice?
+        
+        func body(content: Content) -> some View {
+            content
+                .environmentAlert(self.$appAlert)
+                .onChange(of: self.viewModel.errorMessage) { oldValue, newValue in
+                    guard let message = newValue, message.isEmpty == false else {
+                        return
+                    }
+                    self.$appAlert.error(Text(message), onConfirm: {
+                        self.viewModel.errorMessage = nil
+                    })
+                }
+        }
+    }
+    
+}
+```
 	
