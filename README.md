@@ -22,7 +22,7 @@
 
 ### ✅ Requirements
 
-- iOS 16.0+ / macOS 12.0+
+- iOS 15.0+ / macOS 12.0+
 ---
 
 ### 📦 Installation
