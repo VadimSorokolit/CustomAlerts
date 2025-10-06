@@ -41,7 +41,7 @@ Available methods:
 - `func showWarningAlert(message: String, in: UIViewController, okCompletion: ((UIAlertAction) -> Void)?)` <br />
 - `func showAlert(title: String, message: String, in viewController: UIViewController, okCompletion: ((UIAlertAction) -> Void)?, cancelCompletion: ((UIAlertAction) -> Void)?)` <br /> 
 
-Properties:
+Parameters:
 - `Notification.Name.errorNotification` <br />
 - `Notification.Name.infoNotification` <br />
 - `Notification.Name.warningNotification` <br />
@@ -228,11 +228,8 @@ struct DemoApp: App {
         func body(content: Content) -> some View {
             content
                 .environmentAlert(self.$appAlert)
-                .onChange(of: self.viewModel.errorMessage) { oldValue, newValue in
-                    guard let message = newValue, message.isEmpty == false else {
-                        return
-                    }
-                    self.$appAlert.error(Text(message), onConfirm: {
+                .onChange(of: self.viewModel.errorMessage) { newValue in
+                    self.$appAlert.error(Text(newValue), onConfirm: {
                         self.viewModel.errorMessage = nil
                     })
                 }
