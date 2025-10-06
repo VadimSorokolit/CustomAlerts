@@ -197,7 +197,7 @@ struct ContentView: View {
 }
 ```
 
-**Alert in one place - root scene**
+**App alert in one place - root scene**
 
 ```swift
 import SwiftUI
@@ -205,12 +205,7 @@ import CustomAlerts
 
 @main
 struct DemoApp: App {
-    
-    // MARK: - Properties. Private
-    
     @State private var viewModel = ViewModel()
-    
-    // MARK: Root scene
     
     var body: some Scene {
         WindowGroup {
@@ -218,8 +213,6 @@ struct DemoApp: App {
                 .modifier(LoadViewModifier(viewModel: self.viewModel))
         }
     }
-    
-    // MARK: - Modifiers
     
     struct LoadViewModifier: ViewModifier {
         let viewModel: ViewModel
