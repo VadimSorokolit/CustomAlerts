@@ -97,7 +97,7 @@ public enum CustomAlert {
                             .multilineTextAlignment(.center)
                             .lineSpacing(6.0)
                             .lineLimit(3)
-                            .foregroundStyle(.primary)
+                            .foregroundStyle(.black)
                             .padding(.top, 16.0)
                             .padding(.bottom, 18.0)
                             .padding(.horizontal, 16.0)
