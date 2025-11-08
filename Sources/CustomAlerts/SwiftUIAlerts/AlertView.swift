@@ -65,11 +65,10 @@ public enum CustomAlert {
         }
     }
     
-    @MainActor
-    struct Key: @preconcurrency EnvironmentKey {
-        public static let defaultValue: Binding<Notice?> = .constant(nil)
+    struct Key: EnvironmentKey {
+        nonisolated(unsafe) static let defaultValue: Binding<Notice?> = .constant(nil)
     }
-    
+
     struct AlertOverlayModifier: ViewModifier {
         @Binding var type: Notice?
         
